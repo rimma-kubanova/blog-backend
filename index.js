@@ -7,10 +7,8 @@ import { registerValidation, loginValidation, postCreateValidation } from './val
 import { handleValidationErrors, checkAuth } from './utils/index.js';
 import { UserController, PostController } from './controllers/index.js';
 
-
-mongoose.connect(process.env.MONGODB_URI
-
-).then(()=> console.log('DB ok'))
+mongoose.set("strictQuery", false);
+mongoose.connect(process.env.MONGODB_URI).then(()=> console.log('DB ok'))
 .catch((err)=> console.log('DB error', err));
 
 
